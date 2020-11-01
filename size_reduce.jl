@@ -28,13 +28,13 @@ function size_reduce!(b::Matrix{Int64})::Tuple{Matrix{Int64},Matrix{Float64}}
     c = b
     for i in 1:n
         for j in i - 1:-1:1 
-            c, μ = size_reduce_helper!(i, j, c, μ)
+            c, μ = partial_size_reduce!(i, j, c, μ)
         end
     end
     return c, μ
 end
 
-function size_reduce_helper!(i::Int64, j::Int64, b::Matrix{Int64}, μ::Matrix{Float64})::Tuple{Matrix{Int64},Matrix{Float64}}
+function partial_size_reduce!(i::Int64, j::Int64, b::Matrix{Int64}, μ::Matrix{Float64})::Tuple{Matrix{Int64},Matrix{Float64}}
     if abs(μ[i, j]) <= 1 / 2
         return b, μ
     end   
@@ -45,6 +45,7 @@ function size_reduce_helper!(i::Int64, j::Int64, b::Matrix{Int64}, μ::Matrix{Fl
     end
     return b, μ
 end
+
 
 function test()
     b = [
@@ -70,5 +71,3 @@ function test()
     b_sr′, μ_sr = gram_schmidt(B)
     @show μ_sr
 end
-
-test()
