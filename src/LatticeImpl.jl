@@ -15,4 +15,7 @@ module LatticeImpl
 
     include("DeepLLL.jl")
     export deep_lll_reduced!
+
+    include("Babai.jl")
+    export babai, babai_fast
 end

@@ -1,5 +1,5 @@
 #=
-アルゴリズム42 Lagrange簡約
+アルゴリズム4 Lagrange簡約
 =#
 function ragrange_reduced(b1, b2)
     if norm(b1) > norm(b2)
