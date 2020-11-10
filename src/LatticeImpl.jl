@@ -16,6 +16,12 @@ module LatticeImpl
     include("DeepLLL.jl")
     export deep_lll_reduced!
 
+    include("MLLL.jl")
+    export mlll_reduced!
+
     include("Babai.jl")
     export babai, babai_fast
+
+    include("BDD.jl")
+    export decoding_attack
 end

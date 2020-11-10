@@ -19,7 +19,7 @@ end
 function partial_size_reduce!(i::Int64, j::Int64, b::Matrix{Int64}, μ::Matrix{Float64})::Tuple{Matrix{Int64},Matrix{Float64}}
     if abs(μ[i, j]) <= 1 / 2
         return b, μ
-    end   
+    end
     q = round(μ[i, j])
     b[i, :] = b[i, :] - q * b[j, :]
     for l in 1:j
