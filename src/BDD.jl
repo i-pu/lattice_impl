@@ -12,8 +12,7 @@ function decoding_attack(q::Int64, σ::Float64, A::Matrix{Int64}, b::Vector{Int6
     m = size(A', 2)
     q_ary_base = vcat(A', q * Matrix{Int64}(I, m, m))
     @show size(q_ary_base)
-
-    δ = 3/4
+    δ = 0.99
     q_ary_base = mlll_reduced!(q_ary_base, δ)
     @assert size(q_ary_base, 1) == size(q_ary_base, 2) == m
     v = babai_fast(q_ary_base, b)

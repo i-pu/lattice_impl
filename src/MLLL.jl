@@ -14,8 +14,7 @@ function mlll_reduced!(b::Matrix{Int64}, δ::Float64)
             z -= 1
         end
 
-        # == GSOベクトルの計算
-        b′, μ = similar(b, Float64), zeros((h, h))
+        # b′, μ = similar(b, Float64), zeros((h, h))
         b′[g, :] = b[g, :]
         B = zeros(Float64, g)
         B[g] = norm(b[g, :])^2
