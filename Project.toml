@@ -4,8 +4,11 @@ authors = ["wakame-tech <kamata1919@gmail.com>"]
 version = "0.1.0"
 
 [deps]
+DarkIntegers = "95d18f7b-8dde-4426-a3cb-b3b9e7df9890"
 DelimitedFiles = "8bb1440f-4735-579b-a4ab-409b98df4dab"
+LLLplus = "142c1900-a1c3-58ae-a66d-b187f9ca6423"
 LinearAlgebra = "37e2e46d-f89d-539d-b4ee-838fcccc9c8e"
+Mods = "7475f97c-0381-53b1-977b-4c60186c8d62"
 
 [extras]
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"

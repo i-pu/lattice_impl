@@ -5,13 +5,14 @@ using LatticeImpl
 using DelimitedFiles
 
 function Base.show(io::IO, m::Matrix{T}) where T
-    print(io)
-    writedlm(stdout, m)
+    println(io, "")
+    writedlm(io, m)
+    println(io, "")
 end
 
 function Base.show(io::IO, m::Matrix{Float64})
-    print(io)
-    writedlm(stdout, map(e -> round(e, digits=2), m))
+    writedlm(io, map(e -> round(e, digits=2), m))
+    println(io, "")
 end
 
 function passed(f::Function, args...)::Bool
@@ -23,10 +24,12 @@ function passed(f::Function, args...)::Bool
     end
 end
 
-include("./SizeReduce.jl")
-include("./LagrangeReduce.jl")
-include("./LLL.jl")
-include("./DeepLLL.jl")
-include("./MLLL.jl")
-include("./Babai.jl")
-include("./BDD.jl")
+@testset "All tests" begin
+    include("./SizeReduce.jl")
+    include("./LagrangeReduce.jl")
+    include("./LLL.jl")
+    include("./DeepLLL.jl")
+    include("./MLLL.jl")
+    include("./Babai.jl")
+    include("./BDD.jl")
+end

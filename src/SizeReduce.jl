@@ -17,6 +17,7 @@ function size_reduce!(b::Matrix{Int64})::Tuple{Matrix{Int64},Matrix{Float64}}
 end
 
 function partial_size_reduce!(i::Int64, j::Int64, b::Matrix{Int64}, μ::Matrix{Float64})::Tuple{Matrix{Int64},Matrix{Float64}}
+    @assert j < i
     if abs(μ[i, j]) <= 1 / 2
         return b, μ
     end

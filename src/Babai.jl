@@ -17,7 +17,8 @@ function babai(b::Matrix{Int64}, w::Vector{Int64})::Vector{Int64}
 end
 
 function babai_fast(b::Matrix{Int64}, w::Vector{Int64})::Vector{Int64}
-    n = size(b, 1)
+    n, m = size(b)
+    @assert n == m "$n == $m"
     b′, _ = gram_schmidt(b)
     β = copy(w)
     for i in n:-1:1
